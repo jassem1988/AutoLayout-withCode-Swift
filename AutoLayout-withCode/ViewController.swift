@@ -14,7 +14,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         let lable1 = UILabel()
-        lable1.translatesAutoresizingMaskIntoConstraints = false  //To make our own contsraints 
+        lable1.translatesAutoresizingMaskIntoConstraints = false  //To make our own contsraints
         lable1.backgroundColor = .red
         lable1.text = "THESE"
         lable1.sizeToFit()
@@ -49,6 +49,11 @@ class ViewController: UIViewController {
         view.addSubview(lable4)
         view.addSubview(lable5)
         
+        let viewsDictionary = ["label1": lable1, "label2": lable2, "label3": lable3, "label4": lable4, "label5": lable5]
+        
+        for label in viewsDictionary.keys {
+            view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[\(label)]|", options: [], metrics: nil, views: viewsDictionary))
+        }
     }
 
 
